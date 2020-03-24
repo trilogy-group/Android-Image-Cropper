@@ -598,11 +598,7 @@ public class CropOverlayView extends View {
             }
             circleSelectionPath.addOval(mRectF, Path.Direction.CW);
             canvas.save();
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-                canvas.clipOutPath(mPath);
-            } else {
-                canvas.clipPath(mPath, Region.Op.XOR);
-            }
+            canvas.clipOutPath(mPath);
             canvas.drawRect(bitmapRect.left, bitmapRect.top, bitmapRect.right, bitmapRect.bottom, mBackgroundPaint);
             canvas.restore();
         }
